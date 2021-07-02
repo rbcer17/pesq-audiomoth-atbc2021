@@ -5,11 +5,11 @@ library(dplyr)
 rm(list=ls())
 
 ## insira o diret?rio onde est? o conjunto de grava??es:##############################################################################
-filesWave <- list.files("/home/rbcer10/teste1", pattern="*.WAV", full.names=TRUE)
+filesWave <- list.files("/home/rbc/Documents/co-cup", pattern="*.WAV", full.names=TRUE)
 #####################################################################################################################################
 
 ## insira o diret?rio onde deseja salvar o output:####################################################################################
-setwd("/home/rbcer10/teste1")
+setwd("/home/rbc/Documents/co-cup")
 #####################################################################################################################################
 
 ## insira manualmente os dados:#######################################################################################################
