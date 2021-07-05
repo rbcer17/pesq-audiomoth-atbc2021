@@ -4,9 +4,11 @@ library("MASS")
 library(lawstat)
 atbc2021 = audiomoth_indices_for_r_nosd_atbc_2021
 summary(atbc2021)
+depvar = atbc2021$meanbio
 #
-anovaresul<-aov(meanbio ~ site+habitat+site:habitat, atbc2021)
+anovaresul<-aov(depvar ~ habitat+site+habitat:site, atbc2021)
 summary(anovaresul)
+print(anovaresul)
 ?interaction.plot
 interaction.plot(atbc2021$site, atbc2021$habitat, atbc2021$meanbio)
 #
@@ -14,9 +16,9 @@ interaction.plot(atbc2021$site, atbc2021$habitat, atbc2021$meanbio)
 shapiro.test(resid(anovaresul))
 #
 #Homocedasticidade: Mesma variancia lawstat package levene test
-levene.test(atbc2021$meanbio, atbc2021$site)
+levene.test(depvar, atbc2021$site)
 #p-valor = 0.9443
-levene.test(atbc2021$meanbio, atbc2021$habitat)
+levene.test(depvar, atbc2021$habitat)
 #
 #Test de Tukey para ver quais grupos diferem entre si
 #
@@ -26,6 +28,14 @@ levene.test(atbc2021$meanbio, atbc2021$habitat)
 #TODOS OS VALORES DE LWR (LIMITE INFERIOR) POSITIVO SAO SIGNIFICATIVOS.
 # DIFF SIGNIFICA DIFERENCIA
 plot(anovaresul)
+#boxplots for each variable per site
+boxplot(meanaci~site, data=atbc2021)
+boxplot(meanadi~site, data=atbc2021)
+boxplot(meanaeve~site, data=atbc2021)
 boxplot(meanbio~site, data=atbc2021)
-TukeyHSD(anovaresult)
-plot(TukeyHSD(anovaresult))
+boxplot(meanh~site, data=atbc2021)
+boxplot(meanm~site, data=atbc2021)
+boxplot(meanndsi~site, data=atbc2021)
+#
+TukeyHSD(anovaresul)
+plot(TukeyHSD(anovaresul))
