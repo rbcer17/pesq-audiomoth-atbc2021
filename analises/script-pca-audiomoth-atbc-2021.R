@@ -1,4 +1,4 @@
-﻿install.packages("factoextra")
+install.packages("factoextra")
 library(factoextra)
 library(psych)
 #import excel spreadsheet with data and classifying variables
@@ -27,7 +27,7 @@ print(pcaresult)
 # thiago r-bloggers example
 #
 library(devtools)
-install_github("ggbiplot", "vqv")
+install_github("vqv/ggbiplot")
 library(ggbiplot)
 g <- ggbiplot(pcaresult, obs.scale = 1, var.scale = 1,
 groups = sitenames, ellipse = TRUE,
