@@ -1,21 +1,22 @@
-﻿#import excel spreadsheet with data and classifying variables
+#import excel spreadsheet with data and classifying variables
 #
 library("MASS")
 library(lawstat)
-summary(datasetname)
+atbc2021 = audiomoth_indices_for_r_nosd_atbc_2021
+summary(atbc2021)
 #
-anovaresul<-aov(depvarname ~ site+habitat+site:habitat, datasetname)
+anovaresul<-aov(meanbio ~ site+habitat+site:habitat, atbc2021)
 summary(anovaresul)
 ?interaction.plot
-interaction.plot(datasetname$site, datasetname$habitat, datasetname$depvarname)
+interaction.plot(atbc2021$site, atbc2021$habitat, atbc2021$meanbio)
 #
 #Test de normalidade para compreender os residuos
-shapiro.test(resid(anovaresult))
+shapiro.test(resid(anovaresul))
 #
 #Homocedasticidade: Mesma variancia lawstat package levene test
-levene.test(datasetname$depvarname, datasetname$site)
+levene.test(atbc2021$meanbio, atbc2021$site)
 #p-valor = 0.9443
-levene.test(datasetname$depvarname, datasetname$habitat)
+levene.test(atbc2021$meanbio, atbc2021$habitat)
 #
 #Test de Tukey para ver quais grupos diferem entre si
 #
@@ -25,6 +26,6 @@ levene.test(datasetname$depvarname, datasetname$habitat)
 #TODOS OS VALORES DE LWR (LIMITE INFERIOR) POSITIVO SAO SIGNIFICATIVOS.
 # DIFF SIGNIFICA DIFERENCIA
 plot(anovaresul)
-boxplot(depvarname~site, data=datasetname)
+boxplot(meanbio~site, data=atbc2021)
 TukeyHSD(anovaresult)
 plot(TukeyHSD(anovaresult))

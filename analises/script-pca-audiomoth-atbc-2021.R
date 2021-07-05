@@ -1,4 +1,4 @@
-install.packages("factoextra")
+#install.packages("factoextra")
 library(factoextra)
 library(psych)
 #import excel spreadsheet with data and classifying variables
@@ -6,15 +6,15 @@ library(psych)
 #plot the data and correlations between variables
 #scatter plot and correlations between variables one command below
 #if this does not work just use the plot command instead of pairs.panels
-pairs.panels(datasetname[,5:11],
+pairs.panels(atbc2021[,5:11],
 gap = 0,
 pch=21)
 #
 # select only values variables for the pca matrix dataframe to run
-datatorun <- datasetname[,5:11]
+datatorun <- atbc2021[,5:11]
 #
 #make a dataframe of site names for labeling
-sitenames <- datasetname[,2]
+sitenames <- atbc2021[,2]
 #
 #run pca
 pcaresult <- prcomp(datatorun,
@@ -22,12 +22,13 @@ center = TRUE,
 scale = TRUE)
 #print the results
 print(pcaresult)
+summary(pcaresult)
 #
 #plot the results using the factoextra package, the pcaresult object, and the sitenames object
 # thiago r-bloggers example
 #
 library(devtools)
-install_github("vqv/ggbiplot")
+#install_github("vqv/ggbiplot")
 library(ggbiplot)
 g <- ggbiplot(pcaresult, obs.scale = 1, var.scale = 1,
 groups = sitenames, ellipse = TRUE,
