@@ -19,10 +19,10 @@ sitenames <- atbc2021[,2]
 #
 #make dataframe of site hours for labeling
 sitehours <-atbc2021[,4]
-sitehours$period= "noite"
+sitehours$period= "night"
 for (row in 1:nrow(sitehours)) {
-  if (sitehours$horautc[row] > 5) {(sitehours$period[row] = "manha")}
-  if (sitehours$horautc[row] > 13) {(sitehours$period[row] = "tarde")}
+  if (sitehours$horautc[row] > 5) {(sitehours$period[row] = "am")}
+  if (sitehours$horautc[row] > 13) {(sitehours$period[row] = "pm")}
  
  
     }
@@ -79,8 +79,8 @@ addEllipses = TRUE,
 label = "var",
 col.var = "black",
 repel = TRUE,
-legend.title = "Diagnosis") +
-ggtitle("2D PCA-plot from 30 feature dataset") +
+legend.title = "Sites") +
+ggtitle("PCA Centered Correlation for All Sites") +
 theme(plot.title = element_text(hjust = 0.5))
 #
 #NOW PLOT PCA WITH TIME OF DAY LABELS
@@ -94,7 +94,7 @@ fviz_pca_ind(pcaresult, geom.ind = "point", pointshape = 21,
              label = "var",
              col.var = "black",
              repel = TRUE,
-             legend.title = "Diagnosis") +
-  ggtitle("2D PCA-plot from 30 feature dataset") +
+             legend.title = "Time") +
+  ggtitle("PCA Centered Correlation for All Sites by Time") +
   theme(plot.title = element_text(hjust = 0.5))
 #
