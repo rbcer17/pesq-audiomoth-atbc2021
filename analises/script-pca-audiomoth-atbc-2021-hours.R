@@ -41,6 +41,9 @@ summary(pcaresult)
 library(devtools)
 #install_github("vqv/ggbiplot")
 library(ggbiplot)
+#
+#PCA graph labeled with site name, this works
+#
 g <- ggbiplot(pcaresult, obs.scale = 1, var.scale = 1,
 groups = sitenames$site, ellipse = TRUE,
 circle = TRUE)
@@ -49,9 +52,20 @@ g <- g + theme(legend.direction = 'horizontal',
 legend.position = 'top')
 print(g)
 #
-# another plot from the breast cancer example pca analysis  peter nistrup towards data science
+#same graph now with time of day labeling
 #
+g <- ggbiplot(pcaresult, obs.scale = 1, var.scale = 1,
+              groups = sitehours$period, ellipse = TRUE,
+              circle = TRUE)
+g <- g + scale_color_discrete(name = '')
+g <- g + theme(legend.direction = 'horizontal',
+               legend.position = 'top')
+print(g)
+#
+# another plot from the breast cancer example pca analysis  peter nistrup towards data science
+# Not working yet
 fviz_pca_ind(pcaresult)
+#
 fviz_pca_ind(pcaresult, geom.ind = "point", pointshape = 21,
 pointsize = 2,
 fill.ind = sitenames,
