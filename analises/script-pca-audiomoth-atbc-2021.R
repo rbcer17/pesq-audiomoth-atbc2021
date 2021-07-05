@@ -3,6 +3,7 @@ library(factoextra)
 library(psych)
 #import excel spreadsheet with data and classifying variables
 #
+atbc2021 <- audiomoth_indices_for_r_nosd_atbc_2021
 #plot the data and correlations between variables
 #scatter plot and correlations between variables one command below
 #if this does not work just use the plot command instead of pairs.panels
@@ -40,6 +41,7 @@ print(g)
 #
 # another plot from the breast cancer example pca analysis  peter nistrup towards data science
 #
+fviz_pca_ind(pcaresult)
 fviz_pca_ind(pcaresult, geom.ind = "point", pointshape = 21,
 pointsize = 2,
 fill.ind = sitenames,
