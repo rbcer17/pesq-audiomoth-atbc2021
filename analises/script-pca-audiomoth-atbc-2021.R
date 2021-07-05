@@ -32,7 +32,7 @@ library(devtools)
 #install_github("vqv/ggbiplot")
 library(ggbiplot)
 g <- ggbiplot(pcaresult, obs.scale = 1, var.scale = 1,
-groups = sitenames, ellipse = TRUE,
+groups = sitenames$site, ellipse = TRUE,
 circle = TRUE)
 g <- g + scale_color_discrete(name = '')
 g <- g + theme(legend.direction = 'horizontal',
