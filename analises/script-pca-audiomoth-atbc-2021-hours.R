@@ -63,12 +63,16 @@ g <- g + theme(legend.direction = 'horizontal',
 print(g)
 #
 # another plot from the breast cancer example pca analysis  peter nistrup towards data science
-# Not working yet
+# site maps working dont forget to load factoextra package first
+# WORKING FINE
+# plot black and white just lists site numbers
 fviz_pca_ind(pcaresult)
+#
+#color plot uses sitename dataframe to generate labels
 #
 fviz_pca_ind(pcaresult, geom.ind = "point", pointshape = 21,
 pointsize = 2,
-fill.ind = sitenames,
+fill.ind = sitenames$site,
 col.ind = "black",
 palette = "jco",
 addEllipses = TRUE,
@@ -78,4 +82,19 @@ repel = TRUE,
 legend.title = "Diagnosis") +
 ggtitle("2D PCA-plot from 30 feature dataset") +
 theme(plot.title = element_text(hjust = 0.5))
+#
+#NOW PLOT PCA WITH TIME OF DAY LABELS
+#
+fviz_pca_ind(pcaresult, geom.ind = "point", pointshape = 21,
+             pointsize = 2,
+             fill.ind = sitehours$period,
+             col.ind = "black",
+             palette = "jco",
+             addEllipses = TRUE,
+             label = "var",
+             col.var = "black",
+             repel = TRUE,
+             legend.title = "Diagnosis") +
+  ggtitle("2D PCA-plot from 30 feature dataset") +
+  theme(plot.title = element_text(hjust = 0.5))
 #
