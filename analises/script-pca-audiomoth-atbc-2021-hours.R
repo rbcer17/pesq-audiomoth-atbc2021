@@ -20,8 +20,13 @@ sitenames <- atbc2021[,2]
 #make dataframe of site hours for labeling
 sitehours <-atbc2021[,4]
 sitehours$period= "noite"
-if (sitehours$horautc > 5) {sitehours$period = "manha"}
-if (sitehours$horautc > 13) {sitehours$period = "tarde"}
+for (row in 1:nrow(sitehours)) {
+  if (sitehours$horautc[row] > 5) {(sitehours$period[row] = "manha")}
+  if (sitehours$horautc[row] > 13) {(sitehours$period[row] = "tarde")}
+ 
+ 
+    }
+ 
 #run pca
 pcaresult <- prcomp(datatorun,
 center = TRUE,
