@@ -4,6 +4,8 @@ library(soundecology)
 library(dplyr) 
 rm(list=ls())
 
+#testando o vs code agora
+
 ## insira o diret?rio onde est? o conjunto de grava??es:##############################################################################
 filesWave <- list.files("C:/Users/rbc/Documents/teste1", pattern="*.WAV", full.names=TRUE)
 #####################################################################################################################################
