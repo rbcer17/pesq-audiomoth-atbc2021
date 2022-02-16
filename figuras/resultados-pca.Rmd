@@ -1,0 +1,46 @@
+---
+title: "Resultados da PCA dos indices acusticos"
+output: html_notebook
+---
+ Peso de cada variavel nos eixos da pca
+ 
+              PC1         PC2         PC3         PC4        PC5         PC6
+                  
+meanaci   0.001336797  0.44240050  0.82852901 -0.03228189  0.3366303  0.05377371
+
+meanadi  -0.336502387  0.48799104 -0.36711391 -0.22240495  0.2036536 -0.04542344
+
+meanaeve  0.424233400 -0.35181497  0.28147500  0.01571560 -0.2436892 -0.23201143
+
+meanbio   0.304297856  0.55168872 -0.01877884 -0.31134626 -0.6746831 -0.14387344
+
+meanh    -0.497431518 -0.03150728  0.14145043  0.20075232 -0.1489891 -0.81236078
+
+meanm     0.378301528  0.36949989 -0.21024848  0.80508365  0.1230365 -0.10960864
+
+meanndsi -0.472909117  0.02212343  0.18701225  0.40478300 -0.5415605  0.49857009
+
+                 PC7
+meanaci   0.02379069
+meanadi   0.64873432
+meanaeve  0.70962200
+meanbio  -0.17278980
+meanh    -0.09555985
+meanm     0.02901118
+meanndsi  0.18757600
+
+Importance of components:
+                          PC1    PC2    PC3    PC4     PC5     PC6     PC7
+Standard deviation     1.9510 1.3117 0.9648 0.5205 0.45865 0.18254 0.16605
+Proportion of Variance 0.5438 0.2458 0.1330 0.0387 0.03005 0.00476 0.00394
+Cumulative Proportion  0.5438 0.7896 0.9225 0.9613 0.99130 0.99606 1.00000
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+plot(cars)
+```
+
+
